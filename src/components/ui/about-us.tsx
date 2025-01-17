@@ -37,6 +37,16 @@ export const AboutUs = () => {
                📬 Have feedback or questions? Drop us a line anytime!
             </span>
          </div>
+         <div className='mt-4 text-center'>
+            <a
+               href='https://www.instagram.com/chapterflow_app'
+               target='_blank'
+               rel='noopener noreferrer'
+               className='text-blue-500 hover:underline text-lg font-medium'
+            >
+               Follow us on Instagram! 🌟
+            </a>
+         </div>
       </div>
    );
 };

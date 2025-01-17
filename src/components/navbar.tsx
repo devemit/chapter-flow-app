@@ -4,7 +4,7 @@ import { AppLogo } from './app-logo';
 export const Navbar = () => {
    const isMobile = useIsMobile();
    return (
-      <header className='fixed top-4 left-0 w-full bg-white z-10'>
+      <header className='fixed top-0 left-0 w-full bg-white z-10'>
          <nav className='max-w-[900px] mx-auto px-4 py-3 flex items-center justify-between'>
             <span>{isMobile && <AppLogo />}</span>
             <div>
