@@ -66,42 +66,62 @@ export const Sidebar = () => {
             <NavLink
                to='/'
                className={({ isActive }) =>
-                  `block text-center py-2 px-4 rounded ${
-                     isActive ? 'bg-blue-500 text-white' : 'hover:bg-gray-300'
+                  `block text-center py-2 relative ${
+                     isActive
+                        ? 'text-blue-600 after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-blue-600'
+                        : 'text-gray-700 hover:text-blue-600'
                   }`
                }
             >
-               Home
+               <span className='relative group'>
+                  Home
+                  <span className='absolute -bottom-1 left-0 w-full h-0.5 bg-blue-400 transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100'></span>
+               </span>
             </NavLink>
             <NavLink
                to='/discover'
                className={({ isActive }) =>
-                  `block text-center py-2 px-4 rounded ${
-                     isActive ? 'bg-blue-500 text-white' : 'hover:bg-gray-300'
+                  `block text-center py-2 relative ${
+                     isActive
+                        ? 'text-blue-600 after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-blue-600'
+                        : 'text-gray-700 hover:text-blue-600'
                   }`
                }
             >
-               Discover
+               <span className='relative group'>
+                  Discover
+                  <span className='absolute -bottom-1 left-0 w-full h-0.5 bg-blue-400 transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100'></span>
+               </span>
             </NavLink>
             <NavLink
                to='/search'
                className={({ isActive }) =>
-                  `block text-center py-2 px-4 rounded ${
-                     isActive ? 'bg-blue-500 text-white' : 'hover:bg-gray-300'
+                  `block text-center py-2 relative ${
+                     isActive
+                        ? 'text-blue-600 after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-blue-600'
+                        : 'text-gray-700 hover:text-blue-600'
                   }`
                }
             >
-               Search
+               <span className='relative group'>
+                  Search
+                  <span className='absolute -bottom-1 left-0 w-full h-0.5 bg-blue-400 transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100'></span>
+               </span>
             </NavLink>
             <NavLink
                to='/about-us'
                className={({ isActive }) =>
-                  `block text-center py-2 px-4 rounded ${
-                     isActive ? 'bg-blue-500 text-white' : 'hover:bg-gray-300'
+                  `block text-center py-2 relative ${
+                     isActive
+                        ? 'text-blue-600 after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-blue-600'
+                        : 'text-gray-700 hover:text-blue-600'
                   }`
                }
             >
-               About
+               <span className='relative group'>
+                  About
+                  <span className='absolute -bottom-1 left-0 w-full h-0.5 bg-blue-400 transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100'></span>
+               </span>
             </NavLink>
          </nav>
       </aside>

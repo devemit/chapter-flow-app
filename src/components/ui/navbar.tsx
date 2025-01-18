@@ -1,38 +1,26 @@
 import { Popover } from 'antd';
-import {
-   ArrowRightEndOnRectangleIcon,
-   Bars3Icon,
-   LanguageIcon,
-   UserCircleIcon,
-} from '@heroicons/react/16/solid';
+import { Bars3Icon } from '@heroicons/react/16/solid';
 
-import { useIsMobile } from '../../hooks/useIsMobile';
 import { AppLogo } from './app-logo';
+import { useLocation } from 'react-router';
+import { popoverContent } from '../../utils/helper';
+import { useIsMobile } from '../../hooks/useIsMobile';
 
 export const Navbar = () => {
+   const location = useLocation();
    const isMobile = useIsMobile();
 
-   const popoverContent = (
-      <div className='space-y-2'>
-         <div className='flex items-center gap-2 cursor-pointer hover:text-blue-600'>
-            <UserCircleIcon className='size-5' />
-            <p>Account</p>
-         </div>
-         <div className='flex items-center gap-2 cursor-pointer hover:text-blue-600'>
-            <LanguageIcon className='size-5' />
-            <p>Language</p>
-         </div>
-         <div className='flex items-center gap-2 cursor-pointer hover:text-blue-600'>
-            <ArrowRightEndOnRectangleIcon className='size-5' />
-            <p>Logout</p>
-         </div>
-      </div>
-   );
+   const currentPath =
+      location.pathname === '/'
+         ? 'Home'
+         : location.pathname.slice(1).charAt(0).toUpperCase() +
+           location.pathname.slice(2).replace(/-/g, ' ');
 
    return (
       <header className='fixed top-0 left-0 w-full bg-white z-10'>
          <nav className='max-w-[900px] mx-auto px-4 py-3 flex items-center justify-between'>
-            <span>{isMobile && <AppLogo />}</span>
+            <AppLogo />
+            {!isMobile && <span className='text-xs'>{currentPath}</span>}
             <Popover
                content={popoverContent}
                arrow={false}
