@@ -20,7 +20,7 @@ export const Navbar = () => {
       <header className='fixed top-0 left-0 w-full bg-white z-10'>
          <nav className='max-w-[900px] mx-auto px-4 py-3 flex items-center justify-between'>
             <AppLogo />
-            {!isMobile && <span className='text-xs'>{currentPath}</span>}
+            {!isMobile && <span className='text-xs font-macondo'>{currentPath}</span>}
             <Popover
                content={popoverContent}
                arrow={false}

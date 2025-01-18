@@ -4,9 +4,14 @@ import {
    SparklesIcon,
    MagnifyingGlassIcon,
    InformationCircleIcon,
+   UserCircleIcon,
 } from '@heroicons/react/24/solid';
 
+import { useUser } from '@clerk/clerk-react';
+
 export const Sidebar = () => {
+   const { isSignedIn, user } = useUser();
+
    return (
       <aside className='md:fixed md:top-16 md:h-full md:w-[120px] px-4 py-3 md:flex-shrink-0 fixed bottom-0 w-full bg-white'>
          {/* Mobile Sidebar */}
@@ -59,6 +64,24 @@ export const Sidebar = () => {
                   <InformationCircleIcon className='size-6' />
                </span>
             </NavLink>
+            {isSignedIn && (
+               <NavLink
+                  to='/profile'
+                  className={({ isActive }) =>
+                     `text-sm text-center ${
+                        isActive ? 'text-blue-600' : 'text-gray-700 hover:text-blue-400'
+                     }`
+                  }
+               >
+                  <span className='block'>
+                     {user.imageUrl ? (
+                        <img src={user.imageUrl} alt='Profile' className='w-6 h-6 rounded-full' />
+                     ) : (
+                        <UserCircleIcon className='w-6 h-6' />
+                     )}
+                  </span>
+               </NavLink>
+            )}
          </nav>
 
          {/* Desktop Sidebar */}
@@ -66,63 +89,80 @@ export const Sidebar = () => {
             <NavLink
                to='/'
                className={({ isActive }) =>
-                  `block text-center py-2 relative ${
+                  `flex items-center gap-2 text-center py-2 relative ${
                      isActive
                         ? 'text-blue-600 after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-blue-600'
                         : 'text-gray-700 hover:text-blue-600'
                   }`
                }
             >
-               <span className='relative group'>
-                  Home
-                  <span className='absolute -bottom-1 left-0 w-full h-0.5 bg-blue-400 transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100'></span>
-               </span>
+               <HomeIcon className='w-5 h-5' />
+               <span className='relative group'>Home</span>
             </NavLink>
             <NavLink
                to='/discover'
                className={({ isActive }) =>
-                  `block text-center py-2 relative ${
+                  `flex items-center gap-2 text-center py-2 relative ${
                      isActive
                         ? 'text-blue-600 after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-blue-600'
                         : 'text-gray-700 hover:text-blue-600'
                   }`
                }
             >
-               <span className='relative group'>
-                  Discover
-                  <span className='absolute -bottom-1 left-0 w-full h-0.5 bg-blue-400 transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100'></span>
-               </span>
+               <SparklesIcon className='w-5 h-5' />
+               <span className='relative group'>Discover</span>
             </NavLink>
             <NavLink
                to='/search'
                className={({ isActive }) =>
-                  `block text-center py-2 relative ${
+                  `flex items-center gap-2 text-center py-2 relative ${
                      isActive
                         ? 'text-blue-600 after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-blue-600'
                         : 'text-gray-700 hover:text-blue-600'
                   }`
                }
             >
-               <span className='relative group'>
-                  Search
-                  <span className='absolute -bottom-1 left-0 w-full h-0.5 bg-blue-400 transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100'></span>
-               </span>
+               <MagnifyingGlassIcon className='w-5 h-5' />
+               <span className='relative group'>Search</span>
             </NavLink>
             <NavLink
                to='/about-us'
                className={({ isActive }) =>
-                  `block text-center py-2 relative ${
+                  `flex items-center gap-2 text-center py-2 relative ${
                      isActive
                         ? 'text-blue-600 after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-blue-600'
                         : 'text-gray-700 hover:text-blue-600'
                   }`
                }
             >
-               <span className='relative group'>
-                  About
-                  <span className='absolute -bottom-1 left-0 w-full h-0.5 bg-blue-400 transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100'></span>
-               </span>
+               <InformationCircleIcon className='w-5 h-5' />
+               <span className='relative group'>About</span>
             </NavLink>
+            {isSignedIn && (
+               <NavLink
+                  to='/profile'
+                  className={({ isActive }) =>
+                     `flex gap-1 items-center text-center py-2 relative ${
+                        isActive
+                           ? 'text-blue-600 after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-blue-600'
+                           : 'text-gray-700 hover:text-blue-600'
+                     }`
+                  }
+               >
+                  <span className='relative group'>
+                     {user?.imageUrl ? (
+                        <img
+                           src={user?.imageUrl}
+                           alt='Profile'
+                           className='w-5 h-5 rounded-full inline-block'
+                        />
+                     ) : (
+                        <UserCircleIcon className='w-6 h-6 inline-block' />
+                     )}
+                     <span className='ml-2'>Profile</span>
+                  </span>
+               </NavLink>
+            )}
          </nav>
       </aside>
    );
