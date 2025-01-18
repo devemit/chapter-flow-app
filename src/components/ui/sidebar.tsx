@@ -15,7 +15,7 @@ export const Sidebar = () => {
                to='/'
                className={({ isActive }) =>
                   `text-sm text-center ${
-                     isActive ? 'text-blue-500' : 'text-gray-700 hover:text-blue-400'
+                     isActive ? 'text-blue-600' : 'text-gray-700 hover:text-blue-400'
                   }`
                }
             >
@@ -27,7 +27,7 @@ export const Sidebar = () => {
                to='/discover'
                className={({ isActive }) =>
                   `text-sm text-center ${
-                     isActive ? 'text-blue-500' : 'text-gray-700 hover:text-blue-400'
+                     isActive ? 'text-blue-600' : 'text-gray-700 hover:text-blue-400'
                   }`
                }
             >
@@ -39,7 +39,7 @@ export const Sidebar = () => {
                to='/search'
                className={({ isActive }) =>
                   `text-sm text-center ${
-                     isActive ? 'text-blue-500' : 'text-gray-700 hover:text-blue-400'
+                     isActive ? 'text-blue-600' : 'text-gray-700 hover:text-blue-400'
                   }`
                }
             >
@@ -51,7 +51,7 @@ export const Sidebar = () => {
                to='/about-us'
                className={({ isActive }) =>
                   `text-sm text-center ${
-                     isActive ? 'text-blue-500' : 'text-gray-700 hover:text-blue-400'
+                     isActive ? 'text-blue-600' : 'text-gray-700 hover:text-blue-400'
                   }`
                }
             >
