@@ -1,6 +1,6 @@
 export const AboutUs = () => {
    return (
-      <div className='max-w-[800px] mx-auto p-6 text-gray-800'>
+      <div className='max-w-[800px] mx-auto p-2 text-gray-800'>
          <h1 className='text-3xl font-bold text-blue-600 mb-4 text-left'>📚 About Us</h1>
          <p className='text-lg leading-7 mb-4'>
             Welcome to <span className='font-semibold text-blue-600'>Chapter Flow</span>, your cozy
@@ -32,12 +32,12 @@ export const AboutUs = () => {
             So, grab a cup of coffee ☕, settle into your favorite reading spot 🛋️, and let’s start
             exploring the chapters that await. We're thrilled to have you here! 🎉
          </p>
-         <div className='mt-6 mb-10 text-center'>
+         <div className='mt-6 text-center'>
             <span className='text-xl font-semibold text-gray-600'>
                📬 Have feedback or questions? Drop us a line anytime!
             </span>
          </div>
-         <div className='mt-4 text-center'>
+         <div className='mt-4 text-center mb-14'>
             <a
                href='https://www.instagram.com/chapterflow_app'
                target='_blank'

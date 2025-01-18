@@ -1,12 +1,14 @@
 import { Route, Routes } from 'react-router';
-import { Main } from './components/main';
-import { Navbar } from './components/navbar';
-import { Sidebar } from './components/sidebar';
 import { AppWrapper } from './layout/app-layout';
-import { Discover } from './components/ui/discover';
-import { AboutUs } from './components/ui/about-us';
-import { Home } from './components/ui/home';
-import { Search } from './components/ui/search';
+
+import { Main } from './components/ui/main';
+import { Navbar } from './components/ui/navbar';
+import { Sidebar } from './components/ui/sidebar';
+
+import { Discover } from './components/views/discover';
+import { AboutUs } from './components/views/about-us';
+import { Home } from './components/views/home';
+import { Search } from './components/views/search';
 
 const App = () => {
    return (
