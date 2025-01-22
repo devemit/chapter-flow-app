@@ -12,6 +12,9 @@
   "dependencies": {
     "@clerk/clerk-react": "^5.22.2",
     "@heroicons/react": "^2.2.0",
+    "@supabase/auth-ui-react": "^0.4.7",
+    "@supabase/auth-ui-shared": "^0.1.8",
+    "@supabase/supabase-js": "^2.48.0",
     "antd": "^5.23.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

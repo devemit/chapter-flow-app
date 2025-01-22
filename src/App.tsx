@@ -10,6 +10,7 @@ import { AboutUs } from './components/views/about-us';
 import { Home } from './components/views/home';
 import { Search } from './components/views/search';
 import { Profile } from './components/views/profile';
+import { AuthCallback } from './supabase/components/AuthCallBack';
 
 const App = () => {
    return (
@@ -24,6 +25,7 @@ const App = () => {
                   <Route path='/search' element={<Search />} />
                   <Route path='/about-us' element={<AboutUs />} />
                   <Route path='/profile' element={<Profile />} />
+                  <Route path='/auth/callback' element={<AuthCallback />} />
                </Routes>
             </MainContent>
          </div>

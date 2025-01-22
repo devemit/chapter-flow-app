@@ -6,11 +6,10 @@ import {
    InformationCircleIcon,
    UserCircleIcon,
 } from '@heroicons/react/24/solid';
-
-import { useUser } from '@clerk/clerk-react';
+import { useSupabaseSession } from '../../supabase/hooks/useSupabaseSession';
 
 export const Sidebar = () => {
-   const { isSignedIn, user } = useUser();
+   const session = useSupabaseSession();
 
    return (
       <aside className='md:fixed md:top-16 md:h-full md:w-[120px] px-4 py-3 md:flex-shrink-0 fixed bottom-0 w-full bg-white'>
@@ -64,7 +63,7 @@ export const Sidebar = () => {
                   <InformationCircleIcon className='size-6' />
                </span>
             </NavLink>
-            {isSignedIn && (
+            {session && (
                <NavLink
                   to='/profile'
                   className={({ isActive }) =>
@@ -74,8 +73,12 @@ export const Sidebar = () => {
                   }
                >
                   <span className='block'>
-                     {user.imageUrl ? (
-                        <img src={user.imageUrl} alt='Profile' className='w-6 h-6 rounded-full' />
+                     {session.user?.user_metadata?.avatar_url ? (
+                        <img
+                           src={session.user.user_metadata.avatar_url}
+                           alt='Profile'
+                           className='w-6 h-6 rounded-full'
+                        />
                      ) : (
                         <UserCircleIcon className='w-6 h-6' />
                      )}
@@ -138,7 +141,7 @@ export const Sidebar = () => {
                <InformationCircleIcon className='w-5 h-5' />
                <span className='relative group'>About</span>
             </NavLink>
-            {isSignedIn && (
+            {session && (
                <NavLink
                   to='/profile'
                   className={({ isActive }) =>
@@ -150,9 +153,9 @@ export const Sidebar = () => {
                   }
                >
                   <span className='relative group'>
-                     {user?.imageUrl ? (
+                     {session.user?.user_metadata?.avatar_url ? (
                         <img
-                           src={user?.imageUrl}
+                           src={session.user.user_metadata.avatar_url}
                            alt='Profile'
                            className='w-5 h-5 rounded-full inline-block'
                         />

@@ -3,8 +3,8 @@ import { Bars3Icon } from '@heroicons/react/16/solid';
 
 import { AppLogo } from './app-logo';
 import { useLocation } from 'react-router';
-import { popoverContent } from '../../utils/helper';
 import { useIsMobile } from '../../hooks/useIsMobile';
+import { popoverContent } from './helper';
 
 export const Navbar = () => {
    const location = useLocation();
