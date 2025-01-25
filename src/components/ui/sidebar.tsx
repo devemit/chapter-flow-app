@@ -6,10 +6,10 @@ import {
    InformationCircleIcon,
    UserCircleIcon,
 } from '@heroicons/react/24/solid';
-import { useSupabaseSession } from '../../supabase/hooks/useSupabaseSession';
+import { useAuth } from '../../supabase/providers/AuthProvider';
 
 export const Sidebar = () => {
-   const session = useSupabaseSession();
+   const { session } = useAuth();
 
    return (
       <aside className='md:fixed md:top-16 md:h-full md:w-[120px] px-4 py-3 md:flex-shrink-0 fixed bottom-0 w-full bg-white'>
@@ -63,28 +63,6 @@ export const Sidebar = () => {
                   <InformationCircleIcon className='size-6' />
                </span>
             </NavLink>
-            {session && (
-               <NavLink
-                  to='/profile'
-                  className={({ isActive }) =>
-                     `text-sm text-center ${
-                        isActive ? 'text-blue-600' : 'text-gray-700 hover:text-blue-400'
-                     }`
-                  }
-               >
-                  <span className='block'>
-                     {session.user?.user_metadata?.avatar_url ? (
-                        <img
-                           src={session.user.user_metadata.avatar_url}
-                           alt='Profile'
-                           className='w-6 h-6 rounded-full'
-                        />
-                     ) : (
-                        <UserCircleIcon className='w-6 h-6' />
-                     )}
-                  </span>
-               </NavLink>
-            )}
          </nav>
 
          {/* Desktop Sidebar */}
@@ -153,7 +131,7 @@ export const Sidebar = () => {
                   }
                >
                   <span className='relative group'>
-                     {session.user?.user_metadata?.avatar_url ? (
+                     {session.user.user_metadata?.avatar_url ? (
                         <img
                            src={session.user.user_metadata.avatar_url}
                            alt='Profile'
