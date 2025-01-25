@@ -12,7 +12,7 @@ export const AuthCallback = () => {
             .select()
             .eq('id', userId)
             .single();
-         console.log(existingUser);
+
          if (!existingUser) {
             const { error } = await supabase.from('users').insert([
                {
@@ -27,7 +27,7 @@ export const AuthCallback = () => {
             if (error) throw error;
          }
       } catch (error) {
-         console.error('Error creating user profile:', error);
+         return;
       }
    };
 
