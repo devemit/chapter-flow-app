@@ -1,10 +1,11 @@
 import { Popover } from 'antd';
 import { Bars3Icon } from '@heroicons/react/16/solid';
 
-import { AppLogo } from './app-logo';
 import { useLocation } from 'react-router';
 import { useIsMobile } from '../../hooks/useIsMobile';
-import { popoverContent } from './helper';
+
+import { AppLogo } from './app-logo';
+import { popoverContent } from './popover-content';
 
 export const Navbar = () => {
    const location = useLocation();
