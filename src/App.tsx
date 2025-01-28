@@ -11,6 +11,7 @@ import { Home } from './components/views/home';
 import { Search } from './components/views/search';
 import { Profile } from './components/views/profile';
 import { AuthCallback } from './supabase/providers/AuthCallBack';
+import { Languages } from './components/views/languages';
 
 const App = () => {
    return (
@@ -25,6 +26,7 @@ const App = () => {
                   <Route path='/search' element={<Search />} />
                   <Route path='/about-us' element={<AboutUs />} />
                   <Route path='/profile' element={<Profile />} />
+                  <Route path='/languages' element={<Languages />} />
                   <Route path='/auth/callback' element={<AuthCallback />} />
                </Routes>
             </MainContent>

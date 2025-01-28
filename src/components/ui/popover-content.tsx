@@ -58,7 +58,10 @@ export const popoverContent = () => {
             <p>Account</p>
          </div>
 
-         <div className='flex items-center gap-2 cursor-pointer hover:text-blue-600 px-2 py-1'>
+         <div
+            className='flex items-center gap-2 cursor-pointer hover:text-blue-600 px-2 py-1'
+            onClick={() => navigate('/languages')}
+         >
             <LanguageIcon className='size-5' />
             <p>Language</p>
          </div>
