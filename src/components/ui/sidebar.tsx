@@ -63,6 +63,20 @@ export const Sidebar = () => {
                   <InformationCircleIcon className='size-6' />
                </span>
             </NavLink>
+            {session && (
+               <NavLink
+                  to='/profile'
+                  className={({ isActive }) =>
+                     `text-sm text-center ${
+                        isActive ? 'text-blue-600' : 'text-gray-700 hover:text-blue-400'
+                     }`
+                  }
+               >
+                  <span className='block'>
+                     <UserCircleIcon className='w-6 h-6' />
+                  </span>
+               </NavLink>
+            )}
          </nav>
 
          {/* Desktop Sidebar */}
@@ -131,15 +145,7 @@ export const Sidebar = () => {
                   }
                >
                   <span className='relative group'>
-                     {session.user.user_metadata?.avatar_url ? (
-                        <img
-                           src={session.user.user_metadata.avatar_url}
-                           alt='Profile'
-                           className='w-5 h-5 rounded-full inline-block'
-                        />
-                     ) : (
-                        <UserCircleIcon className='w-6 h-6 inline-block' />
-                     )}
+                     <UserCircleIcon className='w-6 h-6 inline-block' />
                      <span className='ml-2'>Profile</span>
                   </span>
                </NavLink>
