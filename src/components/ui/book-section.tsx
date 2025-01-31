@@ -6,7 +6,7 @@ interface BookSectionProps {
 export const BookSection = ({ title, children }: BookSectionProps) => {
    return (
       <div>
-         <h2 className='text-md font-semibold mb-4 text-slate-600'>{title}</h2>
+         <h2 className='text-md font-semibold mb-4 text-gray-800'>{title}</h2>
          {children}
       </div>
    );

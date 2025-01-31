@@ -5,14 +5,15 @@ import { SearchInput } from '../ui/search-input';
 import { Book } from '../ui/book';
 import { BookGrid } from '../ui/book-grid';
 import { BookSection } from '../ui/book-section';
+import { SubTitle } from '../ui/sub-title';
 
 export const Search = () => {
    return (
-      <section className='flex flex-col items-center pt-10'>
-         <Divider />
+      <section className='flex flex-col items-center'>
          <SearchInput />
+         <Divider />
+         <SubTitle>Popular Books 🔥</SubTitle>
          <div className='w-full max-w-[900px] space-y-8'>
-            <h2 className='my-10 font-semibold text-2xl text-slate-700'>Popular Books</h2>
             <BookSection title='Horror'>
                <BookGrid>
                   <Book className='h-40 bg-gray-100 rounded-md'>Book 1</Book>
