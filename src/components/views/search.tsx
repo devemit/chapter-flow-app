@@ -1,4 +1,7 @@
-import { Divider, Input } from 'antd';
+import { Divider } from 'antd';
+
+import { SearchInput } from './search-input';
+
 import { Book } from '../ui/book';
 import { BookGrid } from '../ui/book-grid';
 import { BookSection } from '../ui/book-section';
@@ -6,11 +9,8 @@ import { BookSection } from '../ui/book-section';
 export const Search = () => {
    return (
       <section className='flex flex-col items-center pt-10'>
-         <div className='w-full max-w-[900px]'>
-            <Input placeholder='Books, Authors, etc...' />
-         </div>
          <Divider />
-
+         <SearchInput />
          <div className='w-full max-w-[900px] space-y-8'>
             <BookSection title='Popular Books'>
                <BookGrid>
