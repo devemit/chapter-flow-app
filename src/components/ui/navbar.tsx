@@ -6,10 +6,14 @@ import { useIsMobile } from '../../hooks/useIsMobile';
 
 import { AppLogo } from './app-logo';
 import { popoverContent } from './popover-content';
+import { useState } from 'react';
 
 export const Navbar = () => {
    const location = useLocation();
    const isMobile = useIsMobile();
+
+   const [isOpen, setIsOpen] = useState(false);
+   const handleClose = () => setIsOpen(false);
 
    const currentPath =
       location.pathname === '/'
@@ -23,10 +27,12 @@ export const Navbar = () => {
             <AppLogo />
             {!isMobile && <span className='text-xs font-macondo'>{currentPath}</span>}
             <Popover
-               content={popoverContent}
+               content={popoverContent(handleClose)}
                arrow={false}
                trigger={'click'}
                placement='bottomLeft'
+               open={isOpen}
+               onOpenChange={setIsOpen}
             >
                <div className='cursor-pointer'>
                   <Bars3Icon className='size-6' />

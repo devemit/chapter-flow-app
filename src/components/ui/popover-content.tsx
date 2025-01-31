@@ -9,10 +9,16 @@ import {
 import { useAuth } from '../../supabase/providers/AuthProvider';
 import { supabase } from '../../supabase/supabase';
 
-export const popoverContent = () => {
+export const popoverContent = (handleClose: () => void) => {
    const navigate = useNavigate();
    const { session } = useAuth();
+
    const [loading, setLoading] = useState(false);
+
+   const handleNavigate = (path: string) => {
+      navigate(path);
+      handleClose();
+   };
 
    const handleSignIn = async () => {
       setLoading(true);
@@ -27,6 +33,7 @@ export const popoverContent = () => {
          console.error('Error signing in:', error);
       } finally {
          setLoading(false);
+         handleClose();
       }
    };
 
@@ -38,6 +45,7 @@ export const popoverContent = () => {
          console.error('Error signing out:', error);
       } finally {
          setLoading(false);
+         handleClose();
       }
    };
 
@@ -52,7 +60,7 @@ export const popoverContent = () => {
 
          <div
             className='flex items-center gap-2 cursor-pointer hover:text-blue-600 px-2 py-1'
-            onClick={() => navigate('/profile')}
+            onClick={() => handleNavigate('/profile')}
          >
             <UserCircleIcon className='size-5' />
             <p>Account</p>
@@ -60,7 +68,7 @@ export const popoverContent = () => {
 
          <div
             className='flex items-center gap-2 cursor-pointer hover:text-blue-600 px-2 py-1'
-            onClick={() => navigate('/languages')}
+            onClick={() => handleNavigate('/languages')}
          >
             <LanguageIcon className='size-5' />
             <p>Language</p>
