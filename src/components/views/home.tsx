@@ -4,6 +4,8 @@ import { ArrowRightIcon, SparklesIcon } from '@heroicons/react/24/outline';
 import { BookGrid } from '../ui/book-grid';
 import { BookSection } from '../ui/book-section';
 import { Book } from '../ui/book';
+import { SubTitle } from '../ui/sub-title';
+import { Link } from 'react-router-dom';
 
 export const Home = () => {
    const { session } = useAuth();
@@ -17,14 +19,17 @@ export const Home = () => {
                <p className='text-gray-600 mb-8 text-lg max-w-[600px] mx-auto'>
                   Explore thousands of books, from classics to AI-generated tales, all in one place
                </p>
-               <Button type='primary' size='large'>
-                  Start Reading
-               </Button>
+               <Link to='/search'>
+                  <Button type='primary' size='large'>
+                     Start Reading
+                  </Button>
+               </Link>
             </div>
          </section>
 
          <div className='w-full max-w-[900px] px-4 py-8 space-y-12'>
             {session && (
+               // TODO: Add continue reading for user
                <BookSection
                   title='Picked for You'
                   action={
@@ -39,20 +44,16 @@ export const Home = () => {
                </BookSection>
             )}
 
-            <BookSection
-               title='Trending Now'
-               action={
-                  <Button type='link'>
-                     View All <ArrowRightIcon className='w-4 h-4 inline' />
-                  </Button>
-               }
-            >
+            <BookSection title='Trending Now'>
                <BookGrid>
+                  <Book className='h-40 bg-gray-100 rounded-md'>Book 1</Book>
                   <Book className='h-40 bg-gray-100 rounded-md'>Book 2</Book>
+                  <Book className='h-40 bg-gray-100 rounded-md'>Book 3</Book>
                </BookGrid>
             </BookSection>
 
             {session && hasReadingHistory && (
+               // TODO: Add continue reading
                <BookSection title='Continue Reading'>
                   <BookGrid>
                      <Book className='h-40 bg-gray-100 rounded-md'>Book 3</Book>
@@ -63,15 +64,17 @@ export const Home = () => {
             <section className='bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl p-8'>
                <div className='flex items-center gap-2 mb-4'>
                   <SparklesIcon className='w-6 h-6 text-purple-600' />
-                  <h2 className='text-xl font-semibold'>AI-Generated Stories</h2>
+                  <SubTitle>AI-Generated Stories</SubTitle>
                </div>
                <p className='text-gray-600 mb-4'>
                   Experience unique stories crafted by artificial intelligence. Each tale is
                   one-of-a-kind, created just for you.
                </p>
-               <Button type='primary' className='bg-purple-600'>
-                  Explore AI Books
-               </Button>
+               <Link to='/discover'>
+                  <Button type='primary' className='bg-purple-600'>
+                     Explore AI Books
+                  </Button>
+               </Link>
             </section>
 
             <section>
