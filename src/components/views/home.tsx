@@ -1,6 +1,6 @@
 import { Button } from 'antd';
 import { useAuth } from '../../supabase/providers/AuthProvider';
-import { ArrowRightIcon, SparklesIcon } from '@heroicons/react/24/outline';
+import { SparklesIcon } from '@heroicons/react/24/outline';
 import { BookGrid } from '../ui/book-grid';
 import { BookSection } from '../ui/book-section';
 import { Book } from '../ui/book';
@@ -30,16 +30,10 @@ export const Home = () => {
          <div className='w-full max-w-[900px] px-4 py-8 space-y-12'>
             {session && (
                // TODO: Add continue reading for user
-               <BookSection
-                  title='Picked for You'
-                  action={
-                     <Button type='link'>
-                        View All <ArrowRightIcon className='w-4 h-4 inline' />
-                     </Button>
-                  }
-               >
+               <BookSection title='Picked for You'>
                   <BookGrid>
                      <Book className='h-40 bg-gray-100 rounded-md'>Book 1</Book>
+                     <Book className='h-40 bg-gray-100 rounded-md'>Book 2</Book>
                   </BookGrid>
                </BookSection>
             )}
