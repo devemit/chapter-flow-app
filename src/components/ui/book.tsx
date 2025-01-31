@@ -8,5 +8,9 @@ export const Book = ({
    children: React.ReactNode;
    className?: string;
 }) => {
-   return <Card className={cn(className, 'cursor-pointer')}>{children}</Card>;
+   return (
+      <Card hoverable className={cn(className, 'cursor-pointer')}>
+         {children}
+      </Card>
+   );
 };
