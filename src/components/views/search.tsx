@@ -1,6 +1,6 @@
 import { Divider } from 'antd';
 
-import { SearchInput } from './search-input';
+import { SearchInput } from '../ui/search-input';
 
 import { Book } from '../ui/book';
 import { BookGrid } from '../ui/book-grid';
