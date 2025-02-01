@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Button } from 'antd';
 import { useAuth } from '../../supabase/providers/AuthProvider';
 import { SparklesIcon } from '@heroicons/react/24/outline';
@@ -6,10 +7,22 @@ import { BookSection } from '../ui/book-section';
 import { Book } from '../ui/book';
 import { SubTitle } from '../ui/sub-title';
 import { Link } from 'react-router-dom';
+import { fetchBooks } from '../../services/fetch-books';
 
 export const Home = () => {
    const { session } = useAuth();
+   const [books, setBooks] = useState([]);
    const hasReadingHistory = false;
+
+   useEffect(() => {
+      const getBooks = async () => {
+         const data = await fetchBooks();
+         if (data) {
+            setBooks(data as any);
+         }
+      };
+      getBooks();
+   }, []);
 
    return (
       <div className='flex flex-col items-center'>
@@ -40,9 +53,20 @@ export const Home = () => {
 
             <BookSection title='Trending Now'>
                <BookGrid>
-                  <Book className='h-40 bg-gray-100 rounded-md'>Book 1</Book>
+                  {books &&
+                     books.map((book: any) => (
+                        <Link to={`/book/${book?.id}`} key={book?.id}>
+                           <Book className='h-40 bg-gray-100 rounded-md relative group'>
+                              <img
+                                 src={book?.cover_image_url}
+                                 alt={book?.title}
+                                 className='w-full h-full object-cover rounded-md'
+                              />
+                              <span>{book?.author}</span>
+                           </Book>
+                        </Link>
+                     ))}
                   <Book className='h-40 bg-gray-100 rounded-md'>Book 2</Book>
-                  <Book className='h-40 bg-gray-100 rounded-md'>Book 3</Book>
                </BookGrid>
             </BookSection>
 

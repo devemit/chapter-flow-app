@@ -12,6 +12,7 @@ import { Search } from './components/views/search';
 import { Profile } from './components/views/profile';
 import { AuthCallback } from './supabase/providers/AuthCallBack';
 import { Languages } from './components/views/languages';
+import { BookInfo } from './components/book-info';
 
 const App = () => {
    return (
@@ -27,6 +28,7 @@ const App = () => {
                   <Route path='/about-us' element={<AboutUs />} />
                   <Route path='/profile' element={<Profile />} />
                   <Route path='/languages' element={<Languages />} />
+                  <Route path='/book/:id' element={<BookInfo />} />
                   <Route path='/auth/callback' element={<AuthCallback />} />
                </Routes>
             </MainContent>
